@@ -1,0 +1,45 @@
+<meta charset="utf-8">
+
+
+<script src="lib.js"></script>
+<script src="https://bit.ly/2NKJT7E"></script>
+
+<h1>Uber</h1>
+<script>
+    var distancia = pegaNumero("Qual a distância percorrida?")
+
+    var tempoEmMinutos = (distancia / 25) * 60
+    
+    mostra("Tempo: " + formataRelogio(tempoEmMinutos))
+    
+    var totalUber = 2 +  distancia * 1.40 + tempoEmMinutos * 0.26
+    mostra("Total: " + formataMoeda(totalUber))
+</script>
+
+<h1>Carro</h1>
+<script>
+    // TODO calcular gasto com depreciação
+    // TODO
+    
+    var autonomia = 9
+    
+    var precoGasolina = pegaNumero("Qual o valor do litro do combustível")
+    var totalGasolina = distancia/autonomia * precoGasolina
+    mostra("Gasolina: " +  formataMoeda(totalGasolina))
+    
+    var totalEstacionamento = pegaNumero("Qual o valor do estacionamento")
+    mostra("Estacionamento: " + formataMoeda(totalEstacionamento))
+
+    var totalCarro = totalGasolina + totalEstacionamento
+    mostra("Total: " +   formataMoeda(totalCarro))  
+</script>
+
+<!-- 
+
+    TODO De onde vem para onde vai
+    TODO perguntar qual o carro e pesquisar a autonomia
+    TODO pesquisart precos nos postos do trajeto
+    TODO pesquisar estasionamentos e preços no destino
+    Média
+
+ -->
