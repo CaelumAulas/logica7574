@@ -1,0 +1,102 @@
+<meta charset="utf-8">
+
+<!-- 
+// Sintaxe
+// Ordem de execução 
+-->
+
+<h1>Ficha da Academia</h1>
+
+
+<!-- (input+br+br)*4 -->
+Nome: 
+<input type="text" id="inputNome" value="Artur">
+<br>
+<br>
+
+Peso: 
+<input type="text" id="inputPeso" value="74">
+<br>
+<br>
+
+Altura: 
+<input type="text" id="inputAltura" value="1,80">
+<br>
+<br>
+
+Data de nascimento: 
+<input type="text" id="inputDataNascimento" value="19/06/1993">
+<br>
+<br>
+
+<input type="checkbox" id="inputProblemasCardiacos"> Problemas cardíacos
+<br>
+<br>
+
+<button onclick="cadastraFicha()">
+    Cadastrar
+</button>
+
+
+<!-- importando código -->
+<!-- importando biblioteca -->
+<script src="lib.js"></script>
+<!-- libBrasil.js -->
+<script src="https://bit.ly/2NMVOSw"></script>
+<!-- mostra.js -->
+<script src="https://bit.ly/2meWu6g"></script>
+<!-- libIdade.js -->
+<script src="https://bit.ly/2uhtK1r"></script>
+
+<script>
+function cadastraFicha(){
+    var nome = inputNome.value
+    var peso = parseFloatBrasil(inputPeso.value)
+    var altura = parseFloatBrasil(inputAltura.value)
+    var imc = peso / (altura * altura)
+    var dataNascimento = inputDataNascimento.value
+
+
+    var dataNascimentoLista = dataNascimento.split("/")
+    
+    var diaNascimento = dataNascimentoLista[0]
+    var mesNascimento = dataNascimentoLista[1]
+    var anoNascimento = dataNascimentoLista[2]
+    
+    var idade = calculaIdade(diaNascimento,mesNascimento,anoNascimento)
+    
+    // booleano
+    var temProblemasCardiacos = inputProblemasCardiacos.checked
+
+    // Quando tiver problemas cardíacos
+    // Quando for criança menor que 15 anos
+    // Precisa de acompanhmento médico
+
+
+    mostra(`
+        <hr>
+        <strong>Nome</strong>: ${nome}
+        <br>
+        <strong>Peso</strong>: ${peso} kg
+        <br>
+        <strong>Altura</strong>: ${formataFloatBrasil(altura)} m
+        <br>
+        <strong>IMC</strong>: ${formataFloatBrasil(imc)}
+        <br>
+        <strong>Data de Nascimento</strong>: ${dataNascimento}
+        <br>
+        <strong>Idade</strong>: ${idade}
+        <br>
+
+        ${
+            (temProblemasCardiacos || idade < 15)
+                ? "Precisa de acompanhamento médico"
+                : "NÃO Precisa de acompanhamento médico"
+        }
+    `)
+}
+</script>
+
+<!-- // Template String
+// Interpolação
+// Tipos de variáveis -->
