@@ -1,0 +1,43 @@
+<meta charset="utf-8">
+
+<h1>Loteria</h1>
+
+<input type="text" id="inputChances">
+<button onclick="jogar()">
+    Começar
+</button>
+
+<script src="mostra.js"></script>
+
+<script>
+    // TODO loteria mega-sena
+    var numeroRodada = 0
+    
+    function jogar(){
+        
+        var totalChances = parseInt(inputChances.value)
+        console.log(totalChances + " chances")
+
+        var lista = []
+
+        for(var i = 0; i < totalChances; i = i + 1) {
+
+            var misterioso = parseInt(Math.random() * 100)
+            lista.push(misterioso)
+            console.log(misterioso)
+        }
+
+        var chute = parseInt(prompt("chute"))
+        
+        // contador
+        numeroRodada = numeroRodada + 1
+
+        var ganhou = lista.includes(chute)
+        
+        if(ganhou){
+            mostra(numeroRodada + ". Vc ganhou")
+        } else {
+            mostra(numeroRodada + ". Vc perdeu")
+        }
+    }
+</script>

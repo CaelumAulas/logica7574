@@ -9,4 +9,9 @@
   *  Nome de funções
   * Nomes de variáveis
 
-### ???
+### Algoritmos e Estrutura de Dados
+
+    * Entender as receitas prontas
+    * Data Science
+    * DBA
+    * IA
